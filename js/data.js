@@ -173,26 +173,26 @@ window.ROJDEV_DATA = {
             }
           },
           {
-            id: "tedoin",
+            id: "acica",
             index: "03",
-            role: "Desarrollador Full Stack / Backend",
-            company: "Tedoin",
+            role: "Coordinador TI & Desarrollador Full Stack / Backend",
+            company: "ACICA (Grupo ACICA · Tedoin · Sutecon)",
             location: "Venezuela",
-            period: "Etapa Anterior",
-            status: "ARQUITECTURA ENTREGADA",
-            impactScore: "95%",
-            impactText: "Portales de ventas de alto volumen + streaming multimedia sobre protocolo SMB2.",
-            summary: "Responsable del diseño e implementación de microservicios backend de alto rendimiento, portales centrales de control de ventas e integraciones con protocolos de almacenamiento corporativo.",
+            period: "2025",
+            status: "INFRAESTRUCTURA & ARQUITECTURA ENTREGADA",
+            impactScore: "96%",
+            impactText: "Clúster de 2 nodos Docker/Ubuntu, portal de ventas de alto volumen y API Samba SMB2 para Odoo.",
+            summary: "Coordinación de infraestructura TI y desarrollo de sistemas centrales para el grupo corporativo ACICA (ACICA, Tedoin y Sutecon): desde la distribución de carga entre nodos de servidores y migración de contenedores Docker con volúmenes persistentes, hasta el desarrollo de portales transaccionales de ventas e integraciones SMB2 con Odoo.",
             bullets: [
-              "Desarrollé 'Control Ventas Inter Tedoin', una plataforma integral de gestión y control de ventas de alto volumen utilizando Laravel 12, React 19 (Inertia.js), PostgreSQL 17 y almacenamiento de objetos MinIO (S3-compatible).",
-              "Diseñé y construí 'API Publicidad', un microservicio especializado en Node.js y Express capaz de autenticar, consultar y transmitir (streaming) imágenes y videos publicitarios directamente desde recursos compartidos de red Windows mediante el protocolo SMB2.",
-              "Estandaricé entornos desacoplados de contenedores Docker (Laravel Sail / Node 22 / PHP 8.4) y pipelines de publicación continua hacia Docker Hub con GitHub Actions.",
-              "Implementé flujos de trabajo modernos de interfaz de usuario con TypeScript, Tailwind CSS 4.0 y componentes accesibles con shadcn/ui."
+              "Optimización de infraestructura distribuyendo la carga del servidor principal entre 2 nodos (Proxmox VE / Ubuntu Server), mejorando las velocidades de respuesta de las aplicaciones internas y migrando los contenedores Docker junto con sus volúmenes garantizando el 100% de integridad de la información.",
+              "Desarrollé 'Control Ventas Inter Tedoin', un sistema integral de gestión y control de ventas de alto volumen utilizando Laravel 12, React 19 (Inertia.js), PostgreSQL 17, TypeScript, Tailwind CSS 4.0 y almacenamiento de objetos MinIO (S3).",
+              "Diseñé y construí 'API Publicidad', un microservicio en Node.js y Express (con CI/CD a Docker Hub) que consulta y transmite archivos multimedia desde carpetas compartidas mediante protocolo Samba (SMB2) para ser consumida en el sistema Odoo en el módulo web como página de publicidad.",
+              "Estandaricé entornos desacoplados de contenedores Docker para desarrollo y producción corporativa sobre Ubuntu Server."
             ],
-            tech: ["Laravel 12", "React 19", "Inertia.js", "Node.js", "Express", "SMB2 Protocol", "PostgreSQL 17", "MinIO S3", "TypeScript", "Tailwind CSS 4.0", "Docker Hub CI/CD"],
+            tech: ["Proxmox VE", "Ubuntu Server", "Docker & Volumes", "Odoo Web Module", "Laravel 12", "React 19 (Inertia.js)", "Node.js / Express", "Samba / SMB2", "PostgreSQL 17", "MinIO S3", "TypeScript"],
             blueprint: {
-              title: "Ecosistema de Ventas & Microservicio SMB2",
-              nodes: ["React 19 + Inertia", "Laravel 12 Core + MinIO S3", "Node.js SMB2 Streamer", "Windows Network Shares"]
+              title: "Clúster de 2 Nodos Docker · Ventas Tedoin & API SMB2 → Odoo",
+              nodes: ["2-Node Ubuntu/Docker Cluster", "Laravel 12 + React 19 + MinIO", "Node.js SMB2 API", "Odoo Web Module"]
             }
           },
           {
@@ -481,26 +481,26 @@ window.ROJDEV_DATA = {
             }
           },
           {
-            id: "tedoin",
+            id: "acica",
             index: "03",
-            role: "Full Stack / Backend Developer",
-            company: "Tedoin",
+            role: "IT Coordinator & Full Stack / Backend Developer",
+            company: "ACICA (ACICA Group · Tedoin · Sutecon)",
             location: "Venezuela",
-            period: "Previous Role",
-            status: "DELIVERED ARCHITECTURE",
-            impactScore: "95%",
-            impactText: "High-volume sales platform + SMB2 binary media streaming microservice.",
-            summary: "Designed and implemented high-throughput backend microservices, core enterprise sales portals, and cross-protocol network integrations.",
+            period: "2025",
+            status: "INFRASTRUCTURE & DELIVERED ARCHITECTURE",
+            impactScore: "96%",
+            impactText: "2-node Docker/Ubuntu cluster, high-volume sales portal & Samba SMB2 API for Odoo.",
+            summary: "Led IT infrastructure optimization and core software engineering across the ACICA corporate group (ACICA, Tedoin, and Sutecon): from load-balancing server workloads across 2 nodes and migrating Docker containers with persistent volumes, to building high-volume sales platforms and SMB2 media integrations for Odoo.",
             bullets: [
-              "Built 'Control Ventas Inter Tedoin', a high-volume sales management platform powered by Laravel 12, React 19 (Inertia.js), PostgreSQL 17, and MinIO S3-compatible object storage.",
-              "Designed and engineered 'API Publicidad', a specialized Node.js/Express microservice that authenticates, queries, and streams advertising media directly from remote Windows file shares over the SMB2 protocol.",
-              "Containerized separated development (Laravel Sail / Node 22 / PHP 8.4) and production Docker workflows with automated GitHub Actions CI/CD to Docker Hub.",
-              "Delivered modern, type-safe UI/UX workflows using TypeScript, Tailwind CSS 4.0, and shadcn/ui."
+              "Optimized server infrastructure by distributing primary workloads across 2 nodes (Proxmox VE / Ubuntu Server), significantly improving internal application response times and migrating Docker containers alongside their persistent volumes with 100% data integrity.",
+              "Built 'Control Ventas Inter Tedoin', a high-volume sales management and auditing platform powered by Laravel 12, React 19 (Inertia.js), PostgreSQL 17, TypeScript, Tailwind CSS 4.0, and MinIO S3-compatible object storage.",
+              "Engineered 'API Publicidad', a specialized Node.js/Express microservice (with Docker Hub CI/CD) that queries and streams media from shared drives over the Samba (SMB2) protocol to be consumed by Odoo's web module as an advertising portal.",
+              "Standardized decoupled Docker Compose environments across Ubuntu Server nodes for seamless development and production deployments."
             ],
-            tech: ["Laravel 12", "React 19", "Inertia.js", "Node.js", "Express", "SMB2 Protocol", "PostgreSQL 17", "MinIO S3", "TypeScript", "Tailwind CSS 4.0", "Docker Hub CI/CD"],
+            tech: ["Proxmox VE", "Ubuntu Server", "Docker & Volumes", "Odoo Web Module", "Laravel 12", "React 19 (Inertia.js)", "Node.js / Express", "Samba / SMB2", "PostgreSQL 17", "MinIO S3", "TypeScript"],
             blueprint: {
-              title: "Sales Ecosystem & SMB2 Media Streamer",
-              nodes: ["React 19 + Inertia", "Laravel 12 Core + MinIO S3", "Node.js SMB2 Streamer", "Windows Network Shares"]
+              title: "2-Node Docker Cluster · Tedoin Sales & SMB2 API → Odoo",
+              nodes: ["2-Node Ubuntu/Docker Cluster", "Laravel 12 + React 19 + MinIO", "Node.js SMB2 API", "Odoo Web Module"]
             }
           },
           {
@@ -686,9 +686,9 @@ window.ROJDEV_DATA = {
       tech: ["Laravel 12", "React 19", "Inertia.js", "PostgreSQL 17", "MinIO S3", "TypeScript", "Tailwind 4.0", "Docker"],
       diagram: ["React 19 + shadcn/ui", "Laravel 12 Engine", "MinIO S3 Storage", "PostgreSQL 17"],
       es: {
-        title: "Control Ventas Inter Tedoin",
+        title: "Control Ventas Inter Tedoin (Grupo ACICA)",
         type: "Sistema Empresarial de Alto Volumen (Privado)",
-        tagline: "Arquitectura transaccional de ventas con almacenamiento de objetos S3 y entornos Docker desacoplados.",
+        tagline: "Arquitectura transaccional de ventas para ACICA / Tedoin / Sutecon con MinIO S3 y Docker.",
         description: "Sistema integral de gestión, auditoría y control de ventas de alto volumen. Combina la velocidad de Laravel 12 y React 19 mediante Inertia.js con PostgreSQL 17 para integridad transaccional y MinIO para almacenamiento distribuido de comprobantes y activos.",
         highlights: [
           "Arquitectura de contenedores Docker separada para desarrollo (Laravel Sail, PHP 8.4, Node 22) y despliegue en producción.",
@@ -698,9 +698,9 @@ window.ROJDEV_DATA = {
         ]
       },
       en: {
-        title: "Control Ventas Inter Tedoin",
+        title: "Control Ventas Inter Tedoin (ACICA Group)",
         type: "High-Volume Enterprise Sales System (Private)",
-        tagline: "Transactional sales architecture with MinIO S3 object storage and decoupled Docker environments.",
+        tagline: "Transactional sales architecture for ACICA / Tedoin / Sutecon with MinIO S3 and Docker.",
         description: "End-to-end management, auditing, and control platform for high-volume sales operations. Pairs Laravel 12 and React 19 via Inertia.js with PostgreSQL 17 for transactional integrity and MinIO for distributed object storage.",
         highlights: [
           "Sanitized, decoupled Docker topologies for local development (PHP 8.4, Node 22) and production environments.",
@@ -834,10 +834,10 @@ window.ROJDEV_DATA = {
       tech: ["Node.js", "Express", "SMB2 Protocol", "Docker", "GitHub Actions", "Docker Hub CI/CD"],
       diagram: ["HTTP Range Request", "Node.js Express API", "SMB2 Auth Tunnel", "Windows Media Share"],
       es: {
-        title: "API Publicidad · Streaming SMB2",
+        title: "API Publicidad · Streaming SMB2 para Odoo (ACICA)",
         type: "Microservicio Backend de Red (Privado)",
-        tagline: "Puente de alto rendimiento entre clientes web y servidores de archivos Windows mediante protocolo SMB2.",
-        description: "Microservicio especializado en Node.js y Express que autentica, explora y transmite activos publicitarios (imágenes y video) directamente desde carpetas compartidas en servidores Windows remotos utilizando el protocolo SMB2, con pipeline CI/CD hacia Docker Hub.",
+        tagline: "API en Node.js que consulta carpetas compartidas por protocolo Samba (SMB2) para el módulo web de Odoo.",
+        description: "Microservicio especializado desarrollado en ACICA con Node.js y Express que autentica, explora y transmite activos publicitarios directamente desde carpetas compartidas mediante el protocolo Samba (SMB2) para ser consumido en el módulo web del sistema Odoo, con pipeline CI/CD hacia Docker Hub.",
         highlights: [
           "Integración nativa con el protocolo de red SMB2 para lectura binaria de archivos multimedia sin duplicar almacenamiento.",
           "Pipeline de integración y despliegue continuo (GitHub Actions) que compila y publica imágenes en Docker Hub automáticamente.",
@@ -846,10 +846,10 @@ window.ROJDEV_DATA = {
         ]
       },
       en: {
-        title: "API Publicidad · SMB2 Media Streamer",
+        title: "API Publicidad · SMB2 Streamer for Odoo (ACICA)",
         type: "Network Backend Microservice (Private)",
-        tagline: "High-performance bridge between web clients and remote Windows file shares over SMB2.",
-        description: "Specialized Node.js/Express microservice that authenticates, queries, and streams advertising images and videos directly from remote Windows shared drives using the SMB2 protocol, complete with automated Docker Hub CI/CD.",
+        tagline: "Node.js API querying shared folders over Samba (SMB2) for Odoo's web advertising module.",
+        description: "Specialized Node.js/Express microservice engineered at ACICA that authenticates, queries, and streams advertising media from shared network folders via the Samba (SMB2) protocol to be consumed by Odoo's web module, complete with automated Docker Hub CI/CD.",
         highlights: [
           "Native SMB2 network protocol integration for direct binary streaming without duplicating media storage.",
           "Automated GitHub Actions CI/CD workflow building and pushing production images to Docker Hub.",

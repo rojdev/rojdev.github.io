@@ -815,7 +815,7 @@
           printLine(
             `<span class="cmd-cyan">Comandos disponibles / Available commands:</span><br>` +
               `· <span class="cmd-accent">whoami</span>     → Perfil profesional & rol actual<br>` +
-              `· <span class="cmd-accent">experience</span> → Historial laboral (Corpoeureka, Portuguesa Unida, Tedoin, Alcaldía)<br>` +
+              `· <span class="cmd-accent">experience</span> → Historial laboral (Corpoeureka, Portuguesa Unida, ACICA, Alcaldía)<br>` +
               `· <span class="cmd-accent">projects</span>   → Listar sistemas & contribuciones Open Source<br>` +
               `· <span class="cmd-accent">odoo</span>       → Desarrollo en Odoo ERP (v16 a v19)<br>` +
               `· <span class="cmd-accent">portuguesa</span> → Inspeccionar arquitectura DDD de Portuguesa Unida<br>` +
@@ -837,7 +837,7 @@
           printLine(
             `<span class="cmd-cyan">[01] Corpoeureka (Actual)</span> — Desarrollador de Software & Odoo ERP (v16 a v19, Facturación Fiscal, Jaspersoft)<br>` +
               `<span class="cmd-cyan">[02] Portuguesa Unida & SOS Venezuela</span> — Open Source Contributor (Clean Architecture + DDD en 11 capas, MapLibre GL, Scrapers Python)<br>` +
-              `<span class="cmd-cyan">[03] Tedoin</span> — Full Stack / Backend Developer (Control Ventas Laravel 12 + MinIO, API Publicidad SMB2)<br>` +
+              `<span class="cmd-cyan">[03] ACICA (Grupo ACICA · Tedoin · Sutecon)</span> — Coordinador TI & Full Stack / Backend (Clúster 2 nodos Docker/Ubuntu, Control Ventas Laravel 12 + MinIO, API Publicidad SMB2 para Odoo)<br>` +
               `<span class="cmd-cyan">[04] Alcaldía del Municipio Páez</span> — Software Developer & SysAdmin (SACWAN Quasar, Bot Python, SIA Indicadores)`
           );
           break;
@@ -1140,7 +1140,7 @@
       if (!cmdList) return;
       const q = query.trim().toLowerCase();
       const actions = [
-        { label: "Ir a Experiencia Laboral (Corpoeureka, Portuguesa Unida, Tedoin, Alcaldía)", tag: "NAV", run: () => document.getElementById("experience")?.scrollIntoView({ behavior: "smooth" }) },
+        { label: "Ir a Experiencia Laboral (Corpoeureka, Portuguesa Unida, ACICA, Alcaldía)", tag: "NAV", run: () => document.getElementById("experience")?.scrollIntoView({ behavior: "smooth" }) },
         { label: "Ir a Arquitectura de 4 Capas (Proxmox → Ubuntu Server → Odoo v16–v19)", tag: "NAV", run: () => document.getElementById("architecture")?.scrollIntoView({ behavior: "smooth" }) },
         { label: "Ir a Casos de Estudio Horizontal", tag: "NAV", run: () => document.getElementById("showcase")?.scrollIntoView({ behavior: "smooth" }) },
         { label: "Cambiar Idioma (ES ⇄ EN)", tag: "I18N", run: () => toggleLanguage() },
