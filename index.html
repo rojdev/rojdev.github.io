@@ -1,11 +1,571 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>rojdev</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <script>
+    try {
+      document.querySelector('meta[name="color-scheme"]').content = localStorage.getItem("color-scheme") ?? "light dark";
+    } catch (_) {}
+  </script>
+
+  <title>Marcos Martínez (@rojdev) — Desarrollador de Software · Odoo ERP (v16–v19) · Backend & Infraestructura</title>
+  <meta name="description" content="Portafolio profesional de Marcos Martínez (rojdev). Desarrollador de Software y Desarrollador Odoo (v16 a v19), Arquitecto Backend (Laravel 12, Bun/Hono DDD, Python, Node.js SMB2) y Administrador de Infraestructura (Proxmox VE, Ubuntu Server, Docker, PostgreSQL).">
+  <meta name="author" content="Marcos Martínez (rojdev)">
+  <meta name="keywords" content="Marcos Martinez, rojdev, Odoo Developer, Odoo 16, Odoo 17, Odoo 18, Odoo 19, Corpoeureka, Portuguesa Unida, Backend Developer, Laravel 12, React 19, Proxmox VE, Ubuntu Server, Docker, Venezuela">
+
+  <!-- Open Graph / Social -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://rojdev.github.io/">
+  <meta property="og:title" content="Marcos Martínez (@rojdev) — Desarrollador de Software & Desarrollador Odoo (v16–v19)">
+  <meta property="og:description" content="Desde hipervisores Bare-Metal en Proxmox y servidores Ubuntu Server con Docker hasta módulos empresariales Odoo (v16 a v19) y microservicios de alto volumen.">
+  <meta property="og:image" content="https://avatars.githubusercontent.com/u/143766069?v=4">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2306070a'/%3E%3Cpath d='M16 48V16h18c7.2 0 12 4.2 12 10.5 0 4.6-2.7 8.1-7 9.6L48 48h-9.2l-7.8-10.8H24V48h-8zm8-17.6h9c3.1 0 5-1.6 5-4s-1.9-4-5-4h-9v8z' fill='%23ff3b1d'/%3E%3Ccircle cx='50' cy='16' r='5' fill='%2310b981'/%3E%3C/svg%3E">
+
+  <!-- Google Fonts: Syne + Instrument Serif + Plus Jakarta Sans + JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- JSON-LD Person Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Marcos Martínez",
+    "alternateName": "rojdev",
+    "jobTitle": "Software Developer & Odoo Developer",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Corpoeureka"
+    },
+    "url": "https://rojdev.github.io/",
+    "sameAs": [
+      "https://github.com/rojdev",
+      "https://www.linkedin.com/in/marcos-martinez-rojdev/",
+      "https://marcosmartinez.me/"
+    ],
+    "knowsAbout": [
+      "Odoo ERP (v16-v19)",
+      "Python",
+      "PHP Laravel",
+      "React",
+      "Bun & Hono",
+      "Clean Architecture & DDD",
+      "Node.js",
+      "Proxmox VE",
+      "Ubuntu Server",
+      "Docker",
+      "PostgreSQL"
+    ]
+  }
+  </script>
 </head>
 <body>
-    <h1>Hello! this is a test</h1>
+  <!-- Top Scroll Progress Bar -->
+  <div class="scroll-progress-track" aria-hidden="true">
+    <div class="scroll-progress-bar" id="scroll-progress-bar"></div>
+  </div>
+
+  <!-- Interactive 3D Topographic & Node Field Canvas -->
+  <canvas id="webgl-topology-canvas" aria-hidden="true"></canvas>
+
+  <!-- Subtle Architectural Grid Lines & Film Grain -->
+  <div class="architectural-grid-lines" aria-hidden="true">
+    <span></span><span></span><span></span><span></span>
+  </div>
+  <div class="noise-film" aria-hidden="true"></div>
+
+  <!-- Custom Magnetic Cursor -->
+  <div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursor-ring" aria-hidden="true">
+    <span class="cursor-ring-label" id="cursor-label">EXPLORE</span>
+  </div>
+
+  <!-- Boot Sequence Preloader -->
+  <div class="preloader" id="preloader" role="status" aria-label="Cargando portafolio">
+    <div class="preloader-top">
+      <span>ROJDEV // ARCHITECTURAL MONOLITH v2026</span>
+      <span data-i18n="preloader.cluster">PROXMOX_VE // ODOO_V16_V19 // UBUNTU_SERVER</span>
+    </div>
+    <div class="preloader-center">
+      <div class="preloader-counter-wrap">
+        <span class="preloader-counter" id="preloader-counter">000</span>
+        <span class="preloader-unit">% // SYS_INIT</span>
+      </div>
+      <div class="preloader-bar-track">
+        <div class="preloader-bar-fill" id="preloader-bar"></div>
+      </div>
+    </div>
+    <div class="preloader-bottom">
+      <span data-i18n="preloader.boot">INICIALIZANDO TELEMETRÍA DE SISTEMAS</span>
+      <span data-i18n="preloader.ready">ARQUITECTURA LISTA PARA DESPLIEGUE</span>
+    </div>
+  </div>
+
+  <!-- Floating Editorial HUD Header -->
+  <header class="hud-header">
+    <nav class="hud-nav-inner" aria-label="Navegación Principal">
+      <div class="brand-cluster">
+        <a href="#top" class="brand-mark" data-cursor="HOME">
+          <span class="brand-dot"></span>
+          <span>ROJDEV</span>
+        </a>
+        <div class="brand-telemetry">
+          <span>ODOO v16–v19 // BACKEND & INFRA</span>
+          <span>·</span>
+          <span id="live-vet-clock">VET UTC-4</span>
+        </div>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="#architecture" data-i18n="nav.architecture">Arquitectura</a></li>
+        <li><a href="#experience" data-i18n="nav.experience">Trayectoria</a></li>
+        <li><a href="#showcase" data-i18n="nav.showcase">Casos de Estudio</a></li>
+        <li><a href="#archive" data-i18n="nav.archive">Proyectos</a></li>
+        <li><a href="#arsenal" data-i18n="nav.arsenal">Arsenal</a></li>
+        <li><a href="#contact" data-i18n="nav.contact">Contacto</a></li>
+      </ul>
+
+      <div class="hud-controls">
+        <button type="button" class="hud-pill-btn" id="cmd-palette-btn" title="Abrir paleta de comandos (Ctrl+K)" data-cursor="CMD+K">
+          <span>⌘</span>
+          <span data-i18n="nav.cmdHint">Comandos</span>
+          <kbd>Ctrl+K</kbd>
+        </button>
+
+        <button type="button" class="hud-pill-btn" id="lang-toggle-btn" title="Cambiar idioma ES / EN" data-cursor="LANG">
+          <span>🌐</span>
+          <span id="lang-toggle-label">ES</span>
+        </button>
+
+        <!-- Modern Web Guidance Two-State Theme Toggle -->
+        <button type="button" class="hud-pill-btn theme-toggle-btn" id="theme-toggle-btn" data-cursor="THEME">
+          <span class="theme-state-light">
+            <svg class="theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="4"></circle>
+              <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+            </svg>
+            <span class="sr-only">Cambiar a tema claro / Switch to light theme</span>
+          </span>
+          <span class="theme-state-dark">
+            <svg class="theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+            <span class="sr-only">Cambiar a tema oscuro / Switch to dark theme</span>
+          </span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <!-- ====================================================================
+         CHAPTER 00 — HERO: MULTI-LAYER PARALLAX & INTERACTIVE CLI TERMINAL
+         ==================================================================== -->
+    <section class="hero-parallax-wrapper" aria-label="Introducción">
+      <!-- Parallax Depth Layers -->
+      <div class="hero-parallax-layer layer-depth-2" aria-hidden="true">
+        <div class="hero-watermark-monolith">ROJDEV // SYS</div>
+      </div>
+      <div class="hero-parallax-layer layer-depth-1" aria-hidden="true">
+        <div class="hero-orb-crimson"></div>
+        <div class="hero-orb-emerald"></div>
+      </div>
+
+      <div class="hero-container">
+        <div class="hero-grid">
+          <!-- Left Column: Editorial Monolith Typography -->
+          <div class="hero-copy-col">
+            <div class="hero-status-pill">
+              <span class="status-led"></span>
+              <span data-i18n="hero.badge">DESARROLLADOR DE SOFTWARE · ACTUALMENTE DESARROLLADOR ODOO</span>
+            </div>
+
+            <p class="hero-kicker" data-i18n="hero.kicker">ARQUITECTURA BACKEND · ODOO ERP (v16–v19) · INFRAESTRUCTURA UBUNTU SERVER</p>
+
+            <h1 class="hero-headline">
+              <span class="line-wrap" data-i18n="hero.titleLine1">MARCOS</span>
+              <span class="line-wrap accent-stroke" data-i18n="hero.titleLine2">MARTÍNEZ</span>
+            </h1>
+
+            <p class="hero-sub-serif" data-i18n="hero.titleItalic">Sistemas que escalan bajo presión.</p>
+
+            <p class="hero-description" data-i18n="hero.description">
+              Desarrollador de Software enfocado en construir el núcleo operativo de las empresas: desde hipervisores Bare-Metal en Proxmox y despliegues en Ubuntu Server con Docker, hasta microservicios de alto rendimiento en Laravel/Node.js/Bun y desarrollo corporativo en Odoo ERP (v16 a v19).
+            </p>
+
+            <div class="hero-cta-row">
+              <a href="#experience" class="btn-magnetic btn-primary" data-cursor="TRACK RECORD">
+                <span data-i18n="hero.ctaPrimary">Explorar Trayectoria</span>
+                <span>↓</span>
+              </a>
+              <a href="#showcase" class="btn-magnetic btn-secondary" data-cursor="CASE STUDIES">
+                <span data-i18n="hero.ctaSecondary">Arquitectura & Proyectos</span>
+                <span>→</span>
+              </a>
+              <a href="https://www.linkedin.com/in/marcos-martinez-rojdev/" target="_blank" rel="noopener noreferrer" class="btn-magnetic btn-secondary" data-cursor="LINKEDIN">
+                <span>LinkedIn ↗</span>
+              </a>
+            </div>
+
+            <div class="hero-metrics-grid" id="hero-metrics-grid"></div>
+          </div>
+
+          <!-- Right Column: Parallax Telemetry Cards + Interactive CLI Terminal -->
+          <div class="hero-visual-stage" data-parallax-speed="0.18">
+            <div class="floating-telemetry-badges">
+              <div class="telemetry-mini-card">
+                <span class="telemetry-mini-title" data-i18n="hero.floatingCards.card1Title">ENTERPRISE ERP // ODOO v16–v19</span>
+                <span class="telemetry-mini-sub" data-i18n="hero.floatingCards.card1Sub">Módulos a Medida · Migración v16→v19 · Facturación Fiscal API</span>
+              </div>
+              <div class="telemetry-mini-card">
+                <span class="telemetry-mini-title" data-i18n="hero.floatingCards.card2Title">INFRASTRUCTURE // TIER 01-04</span>
+                <span class="telemetry-mini-sub" data-i18n="hero.floatingCards.card2Sub">Proxmox VE · Ubuntu Server LTS · Docker · PostgreSQL 17</span>
+              </div>
+            </div>
+
+            <!-- Interactive CLI Terminal -->
+            <div class="cli-window" role="region" aria-label="Terminal interactiva de Marcos Martínez">
+              <div class="cli-header">
+                <div class="cli-dots" aria-hidden="true">
+                  <span class="cli-dot red"></span>
+                  <span class="cli-dot amber"></span>
+                  <span class="cli-dot green"></span>
+                </div>
+                <span class="cli-title" data-i18n="hero.terminal.title">marcos@rojdev-ubuntu: ~/production-cluster</span>
+                <span class="cli-badge">SSH // LIVE</span>
+              </div>
+
+              <div class="cli-body" id="cli-body" aria-live="polite"></div>
+
+              <div class="cli-quick-chips">
+                <button type="button" class="cli-chip" data-cli-cmd="whoami">whoami</button>
+                <button type="button" class="cli-chip" data-cli-cmd="experience">experience</button>
+                <button type="button" class="cli-chip" data-cli-cmd="odoo">odoo</button>
+                <button type="button" class="cli-chip" data-cli-cmd="portuguesa">portuguesa</button>
+                <button type="button" class="cli-chip" data-cli-cmd="projects">projects</button>
+                <button type="button" class="cli-chip" data-cli-cmd="stack">stack</button>
+                <button type="button" class="cli-chip" data-cli-cmd="contact">contact</button>
+                <button type="button" class="cli-chip" data-cli-cmd="clear">clear</button>
+              </div>
+
+              <form class="cli-input-row" id="cli-form" autocomplete="off">
+                <label for="cli-input" class="cli-input-prefix">❯</label>
+                <input
+                  type="text"
+                  id="cli-input"
+                  class="cli-input"
+                  placeholder="Escribe un comando (help, whoami, experience, projects, odoo, portuguesa)..."
+                  aria-label="Comando de terminal"
+                >
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         CHAPTER 01 — VELOCITY-REACTIVE KINETIC MARQUEE
+         ==================================================================== -->
+    <div class="marquee-band" aria-hidden="true">
+      <div class="marquee-track" id="marquee-track"></div>
+    </div>
+
+    <!-- ====================================================================
+         CHAPTER 02 — VERTICAL 4-TIER ARCHITECTURE (3D ISOMETRIC STACK)
+         ==================================================================== -->
+    <section id="architecture" class="section-shell cv-deferred-section">
+      <div class="section-header">
+        <span class="eyebrow-tag" data-i18n="arch.tag">01 // ARQUITECTURA DE SISTEMAS VERTICAL</span>
+        <h2 class="section-title">
+          <span data-i18n="arch.title">Del silicio al</span>
+          <span class="serif-italic" data-i18n="arch.titleItalic">proceso de negocio.</span>
+        </h2>
+        <p class="section-subtitle" data-i18n="arch.subtitle"></p>
+      </div>
+
+      <div class="arch-layout">
+        <!-- Left: Interactive 3D Isometric Stack -->
+        <div class="iso-stage-wrap" data-parallax-speed="0.12">
+          <div class="iso-controls-bar">
+            <span class="iso-stage-label">TOPOLOGY // 4-TIER STACK</span>
+            <button type="button" class="hud-pill-btn" id="iso-explode-btn" data-i18n="arch.explodeBtn" data-cursor="3D STACK">
+              Expandir Capas en 3D
+            </button>
+          </div>
+          <div class="iso-stack is-exploded" id="iso-stack" role="group" aria-label="Capas de arquitectura en 3D"></div>
+        </div>
+
+        <!-- Right: Detailed Tier Specifications -->
+        <div class="arch-tiers-list" id="arch-tiers-list"></div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         CHAPTER 03 — WORK EXPERIENCE: STICKY SCROLLYTELLING CHRONICLE
+         ==================================================================== -->
+    <section id="experience" class="section-shell cv-deferred-section">
+      <div class="section-header">
+        <span class="eyebrow-tag" data-i18n="experience.tag">02 // TRAYECTORIA PROFESIONAL & ROLES DE INGENIERÍA</span>
+        <h2 class="section-title">
+          <span data-i18n="experience.title">Experiencia</span>
+          <span class="serif-italic" data-i18n="experience.titleItalic">comprobada en producción.</span>
+        </h2>
+        <p class="section-subtitle" data-i18n="experience.subtitle"></p>
+      </div>
+
+      <div class="experience-theatre">
+        <!-- Sticky Left Narrative Telemetry HUD -->
+        <aside class="exp-sticky-hud" aria-label="Resumen del rol activo">
+          <div class="exp-hud-box">
+            <div class="exp-hud-counter">
+              <span class="exp-hud-big-num" id="exp-hud-num">01</span>
+              <span class="exp-hud-total">/ 04 ETAPAS CLAVE</span>
+            </div>
+
+            <div>
+              <h3 class="exp-hud-company" id="exp-hud-company">Corpoeureka</h3>
+              <p class="exp-hud-role" id="exp-hud-role">Desarrollador de Software & Desarrollador Odoo</p>
+            </div>
+
+            <div class="exp-hud-impact">
+              <div class="exp-hud-impact-head">
+                <span data-i18n="experience.impactLabel">IMPACTO ARQUITECTÓNICO</span>
+                <strong id="exp-hud-score">98%</strong>
+              </div>
+              <div class="exp-hud-impact-bar">
+                <div class="exp-hud-impact-fill" id="exp-hud-fill"></div>
+              </div>
+              <p style="font-size:0.78rem;color:var(--text-secondary);" id="exp-hud-impact-text"></p>
+            </div>
+
+            <div class="exp-hud-nav-dots" id="exp-hud-nav-dots"></div>
+          </div>
+        </aside>
+
+        <!-- Scrollable Right Experience Dossiers -->
+        <div class="exp-dossiers-column" id="exp-dossiers-column"></div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         CHAPTER 04 — HORIZONTAL PARALLAX CASE STUDIES SHOWCASE
+         ==================================================================== -->
+    <section id="showcase" class="horizontal-showcase-section">
+      <div class="horizontal-pin-wrap">
+        <div class="horizontal-header-shell">
+          <div>
+            <span class="eyebrow-tag" data-i18n="showcase.tag">03 // CASOS DE ESTUDIO DESTACADOS (SCROLL HORIZONTAL)</span>
+            <h2 class="section-title">
+              <span data-i18n="showcase.title">Ingeniería en</span>
+              <span class="serif-italic" data-i18n="showcase.titleItalic">primera línea.</span>
+            </h2>
+            <p class="section-subtitle" data-i18n="showcase.subtitle"></p>
+          </div>
+          <div class="horizontal-drag-indicator" data-i18n="showcase.dragHint">
+            SCROLL PARA RECORRER EL LABORATORIO →
+          </div>
+        </div>
+
+        <div class="horizontal-track-viewport" id="horizontal-track-viewport">
+          <div class="horizontal-track" id="horizontal-showcase-track"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         CHAPTER 05 — COMPLETE FILTERABLE ARCHIVE BENTO GRID (ALL 11 SYSTEMS)
+         ==================================================================== -->
+    <section id="archive" class="section-shell cv-deferred-section">
+      <div class="section-header">
+        <span class="eyebrow-tag" data-i18n="archive.tag">04 // ARCHIVO COMPLETO DE SISTEMAS & CONTRIBUCIONES</span>
+        <h2 class="section-title">
+          <span data-i18n="archive.title">Catálogo de</span>
+          <span class="serif-italic" data-i18n="archive.titleItalic">Proyectos & Open Source.</span>
+        </h2>
+        <p class="section-subtitle" data-i18n="archive.subtitle"></p>
+      </div>
+
+      <div class="archive-filter-bar" role="tablist" aria-label="Filtrar proyectos por categoría">
+        <button type="button" class="filter-tab-btn is-active" data-archive-filter="all" data-i18n="archive.filters.all">Todos los Sistemas (11)</button>
+        <button type="button" class="filter-tab-btn" data-archive-filter="opensource" data-i18n="archive.filters.opensource">Open Source & Impacto</button>
+        <button type="button" class="filter-tab-btn" data-archive-filter="enterprise" data-i18n="archive.filters.enterprise">Full Stack & ERP</button>
+        <button type="button" class="filter-tab-btn" data-archive-filter="backend" data-i18n="archive.filters.backend">Backend & Bots</button>
+        <button type="button" class="filter-tab-btn" data-archive-filter="devops" data-i18n="archive.filters.devops">DevOps & Tooling</button>
+        <button type="button" class="filter-tab-btn" data-archive-filter="web" data-i18n="archive.filters.web">Web & FinTech</button>
+      </div>
+
+      <div class="archive-bento-grid" id="archive-bento-grid"></div>
+    </section>
+
+    <!-- ====================================================================
+         CHAPTER 06 — ARSENAL MATRIX & LIVE GITHUB TELEMETRY + RADAR CANVAS
+         ==================================================================== -->
+    <section id="arsenal" class="section-shell cv-deferred-section">
+      <div class="section-header">
+        <span class="eyebrow-tag" data-i18n="arsenal.tag">05 // ARSENAL TÉCNICO & TELEMETRÍA EN VIVO DE GITHUB</span>
+        <h2 class="section-title">
+          <span data-i18n="arsenal.title">Dominio de</span>
+          <span class="serif-italic" data-i18n="arsenal.titleItalic">pila completa.</span>
+        </h2>
+        <p class="section-subtitle" data-i18n="arsenal.subtitle"></p>
+      </div>
+
+      <div class="arsenal-top-grid">
+        <!-- Live GitHub Profile & Public Repo Feed -->
+        <div class="github-telemetry-panel">
+          <div class="gh-panel-head">
+            <span class="arch-tier-code" data-i18n="arsenal.githubLiveTitle">TELEMETRÍA DE GITHUB EN TIEMPO REAL</span>
+            <span class="arch-tier-metric" id="gh-sync-status" data-i18n="arsenal.githubSynced">Conectado en vivo a api.github.com/users/rojdev</span>
+          </div>
+
+          <div class="gh-profile-row">
+            <img src="https://avatars.githubusercontent.com/u/143766069?v=4" alt="Marcos Martínez (@rojdev)" class="gh-avatar" width="60" height="60" loading="lazy">
+            <div>
+              <h3 style="font-family:var(--font-display);font-size:1.25rem;font-weight:800;">Marcos Martínez (@rojdev)</h3>
+              <p style="font-family:var(--font-mono);font-size:0.76rem;color:var(--text-secondary);">Software Developer · Odoo ERP (v16–v19) · Venezuela</p>
+            </div>
+          </div>
+
+          <div class="gh-stats-row">
+            <div class="gh-stat-box">
+              <div class="gh-stat-num" id="gh-stat-repos">20+</div>
+              <div class="gh-stat-label">Sistemas & Contribuciones</div>
+            </div>
+            <div class="gh-stat-box">
+              <div class="gh-stat-num">4</div>
+              <div class="gh-stat-label">Capas de Infraestructura</div>
+            </div>
+            <div class="gh-stat-box">
+              <div class="gh-stat-num">v16–19</div>
+              <div class="gh-stat-label">Odoo ERP Core</div>
+            </div>
+          </div>
+
+          <div class="gh-live-repos-list" id="gh-live-repos-list">
+            <a href="https://github.com/Josemigg16/sos-logistica-vzla" target="_blank" rel="noopener noreferrer" class="gh-repo-pill">
+              <span>Portuguesa Unida (sos-logistica)</span>
+              <span style="color:var(--accent-emerald)">TypeScript / DDD ↗</span>
+            </a>
+            <a href="https://github.com/CalitoTech/sos-venezuela-data" target="_blank" rel="noopener noreferrer" class="gh-repo-pill">
+              <span>sos-venezuela-data</span>
+              <span style="color:var(--accent-emerald)">Python / ETL ↗</span>
+            </a>
+            <a href="https://github.com/rojdev/odoo-debug" target="_blank" rel="noopener noreferrer" class="gh-repo-pill">
+              <span>odoo-debug</span>
+              <span style="color:var(--accent-emerald)">Manifest V3 ↗</span>
+            </a>
+            <a href="https://github.com/rojdev/Doxamp" target="_blank" rel="noopener noreferrer" class="gh-repo-pill">
+              <span>Doxamp</span>
+              <span style="color:var(--accent-emerald)">Docker LAMP ↗</span>
+            </a>
+            <a href="https://github.com/rojdev/pz-b42-wiki" target="_blank" rel="noopener noreferrer" class="gh-repo-pill">
+              <span>pz-b42-wiki</span>
+              <span style="color:var(--accent-emerald)">Web Components ↗</span>
+            </a>
+            <a href="https://github.com/rojdev/bcv-usdt-diferencial" target="_blank" rel="noopener noreferrer" class="gh-repo-pill">
+              <span>bcv-usdt-diferencial</span>
+              <span style="color:var(--accent-emerald)">FinTech JS ↗</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Animated Skill Radar Canvas -->
+        <div class="radar-canvas-panel">
+          <span class="arch-tier-code" style="margin-bottom:0.75rem;">RADAR DE ESPECIALIZACIÓN MULTIDIMENSIONAL</span>
+          <canvas id="skill-radar-canvas" width="300" height="300" aria-label="Gráfico de radar de habilidades técnicas"></canvas>
+        </div>
+      </div>
+
+      <div class="arsenal-modules-grid" id="arsenal-modules-grid"></div>
+    </section>
+
+    <!-- ====================================================================
+         CHAPTER 07 — MONUMENTAL PARALLAX CONTACT & FOOTER
+         ==================================================================== -->
+    <section id="contact" class="contact-monument-section cv-deferred-section">
+      <div class="section-shell">
+        <div class="contact-card-monolith" data-parallax-speed="0.1">
+          <div class="hero-status-pill" style="margin-inline:auto;">
+            <span class="status-led"></span>
+            <span data-i18n="contact.availability">DISPONIBLE PARA PROYECTOS RETADORES & CONSULTORÍA ODOO / BACKEND</span>
+          </div>
+
+          <h2 class="contact-headline">
+            <span data-i18n="contact.titleLine1">¿Listo para escalar</span><br>
+            <span class="serif-italic" style="font-family:var(--font-serif);color:var(--accent-roj);" data-i18n="contact.titleLine2">tu infraestructura?</span>
+          </h2>
+
+          <p class="section-subtitle" style="margin-inline:auto;" data-i18n="contact.subtitle"></p>
+
+          <div class="contact-actions-wrap">
+            <a href="mailto:marcos.rojdev@gmail.com" class="btn-magnetic btn-primary" data-cursor="EMAIL">
+              <span>✉</span>
+              <span data-i18n="contact.sendEmail">Enviar Correo Directo</span>
+            </a>
+
+            <button type="button" class="btn-magnetic btn-secondary" id="copy-email-btn" data-cursor="COPY">
+              <span>📋</span>
+              <span id="copy-email-label" data-i18n="contact.copyEmail">Copiar Correo</span>
+              <span style="font-family:var(--font-mono);font-size:0.75rem;color:var(--text-muted);">(marcos.rojdev@gmail.com)</span>
+            </button>
+
+            <a href="https://www.linkedin.com/in/marcos-martinez-rojdev/" target="_blank" rel="noopener noreferrer" class="btn-magnetic btn-secondary" data-cursor="LINKEDIN">
+              <span data-i18n="contact.linkedinBtn">Conectar en LinkedIn</span>
+              <span>↗</span>
+            </a>
+
+            <a href="https://github.com/rojdev" target="_blank" rel="noopener noreferrer" class="btn-magnetic btn-secondary" data-cursor="GITHUB">
+              <span data-i18n="contact.githubBtn">Explorar GitHub (@rojdev)</span>
+              <span>↗</span>
+            </a>
+          </div>
+        </div>
+
+        <footer class="footer-giant-brand">
+          <div class="footer-wordmark" aria-hidden="true">ROJDEV // MM</div>
+          <div class="footer-meta-bar">
+            <span>© 2026 MARCOS MARTÍNEZ (@ROJDEV) · VENEZUELA</span>
+            <span>ODOO ERP (v16–v19) · LARAVEL · PROXMOX VE · UBUNTU SERVER · DOCKER</span>
+            <a href="#top" class="hud-pill-btn" data-cursor="TOP">↑ VOLVER ARRIBA</a>
+          </div>
+        </footer>
+      </div>
+    </section>
+  </main>
+
+  <!-- Project Deep-Dive Blueprint Dialog Modal (<dialog>) -->
+  <dialog class="blueprint-dialog" id="blueprint-dialog" aria-label="Plano técnico del proyecto">
+    <div class="dialog-inner" id="blueprint-dialog-content"></div>
+  </dialog>
+
+  <!-- Command Palette Dialog (<dialog> Ctrl+K) -->
+  <dialog class="cmd-palette-dialog" id="cmd-palette-dialog" aria-label="Paleta de comandos rápida">
+    <input
+      type="search"
+      id="cmd-search-input"
+      class="cmd-search-input"
+      placeholder="Buscar proyecto, rol, comando o acción (ej. Portuguesa Unida, Odoo, Corpoeureka, Idioma)..."
+      autocomplete="off"
+    >
+    <ul class="cmd-list" id="cmd-list"></ul>
+  </dialog>
+
+  <!-- CDN Libraries: Lenis Smooth Scroll + GSAP & ScrollTrigger (Graceful degradation if offline) -->
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js" defer></script>
+
+  <!-- Application Data & Engine -->
+  <script src="js/data.js" defer></script>
+  <script src="js/app.js" defer></script>
 </body>
 </html>
