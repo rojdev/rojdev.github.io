@@ -26,11 +26,33 @@
     const barEl = document.getElementById("preloader-bar");
     if (!preloader) return;
 
+    if (window.location.search.includes("instant")) {
+      preloader.classList.add("is-loaded");
+      preloader.style.display = "none";
+      return;
+    }
+
     let progress = 0;
+    let dismissed = false;
     const start = performance.now();
-    const duration = 1150;
+    const duration = 650;
+
+    function finishPreloader() {
+      if (dismissed) return;
+      dismissed = true;
+      if (counterEl) counterEl.textContent = "100";
+      if (barEl) barEl.style.width = "100%";
+      setTimeout(() => {
+        preloader.classList.add("is-loaded");
+        setTimeout(() => preloader.setAttribute("aria-hidden", "true"), 900);
+      }, 100);
+    }
+
+    // Fail-safe timeout for mobile low-power mode or throttled rAF
+    setTimeout(finishPreloader, 1100);
 
     function tick(now) {
+      if (dismissed) return;
       const elapsed = now - start;
       progress = Math.min(100, Math.round((elapsed / duration) * 100));
       if (counterEl) counterEl.textContent = String(progress).padStart(3, "0");
@@ -39,10 +61,7 @@
       if (progress < 100) {
         requestAnimationFrame(tick);
       } else {
-        setTimeout(() => {
-          preloader.classList.add("is-loaded");
-          setTimeout(() => preloader.setAttribute("aria-hidden", "true"), 900);
-        }, 140);
+        finishPreloader();
       }
     }
     requestAnimationFrame(tick);
@@ -665,7 +684,7 @@
 
     const cx = size / 2;
     const cy = size / 2;
-    const maxR = 100;
+    const maxR = 82;
     const axes = [
       { label: "Odoo 16–19", val: 0.97 },
       { label: "Backend/DDD", val: 0.95 },
@@ -700,7 +719,7 @@
       ctx.stroke();
     });
 
-    ctx.font = "600 10px 'JetBrains Mono', monospace";
+    ctx.font = "600 9.5px 'JetBrains Mono', monospace";
     ctx.fillStyle = textCol;
     ctx.textAlign = "center";
 
@@ -714,8 +733,8 @@
       ctx.strokeStyle = strokeGrid;
       ctx.stroke();
 
-      const lx = cx + Math.cos(ang) * (maxR + 25);
-      const ly = cy + Math.sin(ang) * (maxR + 20) + 3;
+      const lx = cx + Math.cos(ang) * (maxR + 22);
+      const ly = cy + Math.sin(ang) * (maxR + 18) + 3;
       ctx.fillText(axis.label, lx, ly);
     });
 
@@ -972,19 +991,21 @@
         });
       }
 
-      document.querySelectorAll("[data-parallax-speed]").forEach((el) => {
-        const speed = parseFloat(el.getAttribute("data-parallax-speed") || "0.2");
-        gsap.to(el, {
-          y: () => -180 * speed,
-          ease: "none",
-          scrollTrigger: {
-            trigger: el.closest("section") || document.body,
-            start: "top bottom",
-            end: "bottom top",
-            scrub: true
-          }
+      if (window.innerWidth >= 1024) {
+        document.querySelectorAll("[data-parallax-speed]").forEach((el) => {
+          const speed = parseFloat(el.getAttribute("data-parallax-speed") || "0.2");
+          gsap.to(el, {
+            y: () => -180 * speed,
+            ease: "none",
+            scrollTrigger: {
+              trigger: el.closest("section") || document.body,
+              start: "top bottom",
+              end: "bottom top",
+              scrub: true
+            }
+          });
         });
-      });
+      }
     }
 
     if (!CSS.supports("(animation-timeline: view()) and (animation-range: entry)")) {
@@ -1316,6 +1337,39 @@
         renderArchiveGrid(DATA.i18n[currentLang]);
       });
     });
+
+    // Mobile Navigation Menu Drawer
+    const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+    const mobileNavDrawer = document.getElementById("mobile-nav-drawer");
+    if (mobileMenuBtn && mobileNavDrawer) {
+      const closeMobileMenu = () => {
+        mobileMenuBtn.setAttribute("aria-expanded", "false");
+        mobileNavDrawer.hidden = true;
+      };
+
+      mobileMenuBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const isOpen = mobileMenuBtn.getAttribute("aria-expanded") === "true";
+        mobileMenuBtn.setAttribute("aria-expanded", String(!isOpen));
+        mobileNavDrawer.hidden = isOpen;
+      });
+
+      mobileNavDrawer.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", closeMobileMenu);
+      });
+
+      document.addEventListener("click", (e) => {
+        if (!mobileNavDrawer.hidden && !e.target.closest(".hud-header")) {
+          closeMobileMenu();
+        }
+      });
+
+      window.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && !mobileNavDrawer.hidden) {
+          closeMobileMenu();
+        }
+      });
+    }
   }
 
   /* ========================================================================
